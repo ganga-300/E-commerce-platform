@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59.657" height="96.311" viewBox="0 0 59.657 96.311">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_30183" data-name="Rectangle 30183" width="59.657" height="52.498" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_88668" data-name="Group 88668" transform="translate(-15350 19065.82)">
+    <g id="noun-female-6208933" transform="translate(15350.282 -19065.82)">
+      <g id="Group_88300" data-name="Group 88300" transform="translate(0 0)">
+        <path id="Path_134591" data-name="Path 134591" d="M34.038,91.89c0,5.893-9.021,5.893-9.021,0V81.666H13.471c-6.014,0-6.014-9.021,0-9.021H25.017V58.694a29.528,29.528,0,1,1,9.021,0V72.646H45.584c6.014,0,6.014,9.021,0,9.021H34.038ZM29.588,9.141A20.447,20.447,0,1,0,50.034,29.587,20.43,20.43,0,0,0,29.588,9.141Z" fill="#e86ae8"/>
+      </g>
+    </g>
+    <g id="Mask_Group_78876" data-name="Mask Group 78876" transform="translate(15350 -19065.584)" clip-path="url(#clip-path)">
+      <g id="noun-female-6208933-2" data-name="noun-female-6208933" transform="translate(0.283 -0.235)">
+        <g id="Group_88300-2" data-name="Group 88300" transform="translate(0 0)">
+          <path id="Path_134591-2" data-name="Path 134591" d="M34.038,91.89c0,5.893-9.021,5.893-9.021,0V81.666H13.471c-6.014,0-6.014-9.021,0-9.021H25.017V58.694a29.528,29.528,0,1,1,9.021,0V72.646H45.584c6.014,0,6.014,9.021,0,9.021H34.038ZM29.588,9.141A20.447,20.447,0,1,0,50.034,29.588,20.43,20.43,0,0,0,29.588,9.141Z" fill="#cecece"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
