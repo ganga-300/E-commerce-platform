@@ -90,5 +90,3 @@ export default function SignupForm({ onSuccess }) {
     </form>
   );
 }
-
-

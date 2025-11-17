@@ -1,7 +1,7 @@
-import SignUpPage from "../features/auth/page/SignUpPage";
 
-export default function Page() {
-  return <SignUpPage />;
+import SignupForm from "../features/auth/components/SignupForm";
+
+export default function SignupPage() {
+  return <SignupForm />;
 }
-
 

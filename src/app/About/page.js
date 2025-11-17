@@ -1,3 +1,5 @@
+"use client"
+
 import HeroSection from "../AboutUs/components/HeroSection"
 import StorySection from "../AboutUs/components/StorySection"
 import PhilosophySection from "../AboutUs/components/PhilosophySection"
