@@ -1,13 +1,19 @@
 "use client";
 
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { loginUser } from "../service";
+=======
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+>>>>>>> d1c6c3e (added login and signup)
 
 export default function LoginForm({ onSuccess }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -29,6 +35,39 @@ export default function LoginForm({ onSuccess }) {
       setError(err?.message || "Login failed");
     } finally {
       setLoading(false);
+=======
+  const [message, setMessage] = useState("");
+
+  const router = useRouter();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessage("");
+
+    try {
+      const res = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      setMessage("Login successful!");
+      console.log("Logged in:", data);
+
+     
+      router.push("/");
+
+    } catch (err) {
+      setMessage(err.message);
+>>>>>>> d1c6c3e (added login and signup)
     }
   }
 
@@ -49,6 +88,7 @@ export default function LoginForm({ onSuccess }) {
         />
       </div>
 
+<<<<<<< HEAD
       <div>
         <label htmlFor="password" className="block text-sm font-medium">
           Password
@@ -63,6 +103,21 @@ export default function LoginForm({ onSuccess }) {
           placeholder="••••••••"
         />
       </div>
+=======
+      {message && (
+        <p style={{ color: message.includes("successful") ? "green" : "red" }}>
+          {message}
+        </p>
+      )}
+
+      <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type="email"
+        placeholder="Email"
+        required
+      />
+>>>>>>> d1c6c3e (added login and signup)
 
       {error ? (
         <p className="text-sm text-red-600" role="alert">

@@ -1,14 +1,23 @@
+
+
+
 "use client";
 
+<<<<<<< HEAD
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signupUser } from "../service";
+=======
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+>>>>>>> d1c6c3e (added login and signup)
 
 export default function SignupForm({ onSuccess }) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+<<<<<<< HEAD
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -24,6 +33,41 @@ export default function SignupForm({ onSuccess }) {
       setError(err?.message || "Signup failed");
     } finally {
       setLoading(false);
+=======
+  const [message, setMessage] = useState("");
+  const router = useRouter();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setMessage("");
+
+    try {
+      const res = await fetch("http://localhost:8080/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: name,
+          email,
+          password,
+          role: "BUYER", 
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Signup failed");
+      }
+
+      setMessage("Signup successful!");
+      console.log("User created:", data);
+      router.push("/");
+
+    } catch (err) {
+      setMessage(err.message);
+>>>>>>> d1c6c3e (added login and signup)
     }
   }
 
@@ -44,6 +88,7 @@ export default function SignupForm({ onSuccess }) {
         />
       </div>
 
+<<<<<<< HEAD
       <div>
         <label htmlFor="email" className="block text-sm font-medium">
           Email
@@ -58,6 +103,17 @@ export default function SignupForm({ onSuccess }) {
           placeholder="you@example.com"
         />
       </div>
+=======
+      {message && <p style={{ color: message.includes("successful") ? "green" : "red" }}>{message}</p>}
+
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+        placeholder="Name"
+        required
+      />
+>>>>>>> d1c6c3e (added login and signup)
 
       <div>
         <label htmlFor="password" className="block text-sm font-medium">

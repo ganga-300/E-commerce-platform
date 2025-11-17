@@ -1,7 +1,9 @@
+
 export default function HomePage() {
   return (
     <div>
-      <h1>Home Page Working</h1>
+      <h1>HomePage</h1>
+      
     </div>
   );
 }
