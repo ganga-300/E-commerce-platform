@@ -1,6 +1,6 @@
 import "./globals.css";
 import { CartProvider } from '../contexts/CartContext.js';
-import LayoutShell from "./features/shared/components/LayoutShell";
+
 
 // Import Google fonts (or any other font you prefer)
 import { Inter } from "next/font/google";
@@ -17,9 +17,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} antialiased`}>
         <CartProvider>
-          <LayoutShell>
+
             {children}
-          </LayoutShell>
         </CartProvider>
       </body>
     </html>

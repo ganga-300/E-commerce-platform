@@ -19,7 +19,6 @@ export default function LoginForm({ onSuccess }) {
     try {
       const result = await loginUser({ email, password });
 
-      // Store token in localStorage
       if (typeof window !== "undefined") {
         localStorage.setItem("auth", "true");
         if (result && result.token) {

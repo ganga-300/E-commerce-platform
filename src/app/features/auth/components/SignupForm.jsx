@@ -1,95 +1,95 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signupUser } from "../service";
 
-export default function SignupForm({ onSuccess }) {
-  const router = useRouter();
+export default function SignupForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+
+  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError("");
-    setLoading(true);
+    setMessage("");
+
+    const BackendURL = process.env.NEXT_PUBLIC_API_URL 
 
     try {
-      const result = await signupUser({ name, email, password });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userName:name, email, password ,role:"buyer"}),
+      });
 
-      if (typeof onSuccess === "function") onSuccess(result);
+      const data = await res.json();
 
-      router.push("/Login");
+      if (!res.ok) {
+        throw new Error(data.message || "Signup failed");
+      }
+
+      setMessage("Signup successful!");
+      console.log("Registered:", data);
+
+
+      router.push("/login");
     } catch (err) {
-      setError(err?.message || "Signup failed");
-    } finally {
-      setLoading(false);
+      setMessage(err.message);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium">
-          Name
-        </label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#728f40]"
-          placeholder="Jane Doe"
-        />
-      </div>
+    <form
+      onSubmit={handleSubmit}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+        width: "300px",
+        margin: "auto",
+        marginTop: "80px",
+        padding: "20px",
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+      }}
+    >
+      <h2>Signup</h2>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#728f40]"
-          placeholder="you@example.com"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="password" className="block text-sm font-medium">
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="mt-1 w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#728f40]"
-          placeholder="Create a password"
-        />
-      </div>
-
-      {error && (
-        <p className="text-sm text-red-600" role="alert">
-          {error}
+      {message && (
+        <p style={{ color: message.includes("successful") ? "green" : "red" }}>
+          {message}
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full rounded-md bg-[#728f40] px-4 py-2 font-semibold text-white transition-opacity disabled:opacity-60"
-      >
-        {loading ? "Creating account..." : "Create account"}
-      </button>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+        placeholder="Name"
+        required
+      />
+
+      <input
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        type="email"
+        placeholder="Email"
+        required
+      />
+
+      <input
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        type="password"
+        placeholder="Password"
+        required
+      />
+
+      <button type="submit">Signup</button>
     </form>
   );
 }
