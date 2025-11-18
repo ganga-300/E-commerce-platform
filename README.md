@@ -7,7 +7,9 @@ Students, especially at **Rishihood University**, often face challenges in acqui
 **StudyStuff solves this by offering an online platform where students can easily browse, order, and receive study materials on time—right on campus.**
 
 ---
-
+Live link-
+Frontend - e-commerce-platform-q8vd.vercel.app
+Backend - https://e-commerce-platform-backend-60kd.onrender.com
 ## 🏗️ System Architecture
 
 ```
