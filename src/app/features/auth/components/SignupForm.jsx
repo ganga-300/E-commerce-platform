@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signupUser } from "../service";
 
 export default function SignupForm() {
   const [name, setName] = useState("");
@@ -14,30 +15,14 @@ export default function SignupForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     setMessage("");
-
-    const BackendURL = process.env.NEXT_PUBLIC_API_URL 
-
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ userName:name, email, password ,role:"buyer"}),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Signup failed");
-      }
-
+      await signupUser({ userName:name, email, password ,role:"BUYER"});
       setMessage("Signup successful!");
-      console.log("Registered:", data);
-
-
+      console.log("Registered:", { name, email, password });
       router.push("/login");
     } catch (err) {
+      console.error("Signup error:", err);
+      
       setMessage(err.message);
     }
   }
