@@ -8,7 +8,7 @@ Students, especially at **Rishihood University**, often face challenges in acqui
 
 ---
 Live link-
-Frontend - e-commerce-platform-q8vd.vercel.app
+Frontend -https://e-commerce-platform-q8vd-git-main-ganga-s-projects.vercel.app/
 Backend - https://e-commerce-platform-backend-60kd.onrender.com
 ## 🏗️ System Architecture
 
