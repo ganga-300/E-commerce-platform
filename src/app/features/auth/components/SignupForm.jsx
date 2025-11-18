@@ -23,7 +23,7 @@ export default function SignupForm() {
 
       // Redirect after 1 sec
       setTimeout(() => {
-        router.push("/login");
+        router.push("/");
       }, 1000);
 
       console.log("Registered:", { name, email, password });
