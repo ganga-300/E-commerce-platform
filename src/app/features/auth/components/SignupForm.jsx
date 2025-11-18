@@ -15,15 +15,21 @@ export default function SignupForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     setMessage("");
+
     try {
-      await signupUser({ userName:name, email, password ,role:"BUYER"});
+      await signupUser({ userName: name, email, password, role: "BUYER" });
+
       setMessage("Signup successful!");
+
+      // Redirect after 1 sec
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
+
       console.log("Registered:", { name, email, password });
-      router.push("/Login");
     } catch (err) {
       console.error("Signup error:", err);
-      
-      setMessage(err.message);
+      setMessage(err.message || "Signup failed");
     }
   }
 
