@@ -19,7 +19,7 @@ export default function SignupForm() {
       await signupUser({ userName:name, email, password ,role:"BUYER"});
       setMessage("Signup successful!");
       console.log("Registered:", { name, email, password });
-      router.push("/login");
+      router.push("/Login");
     } catch (err) {
       console.error("Signup error:", err);
       
