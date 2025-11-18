@@ -1,8 +1,12 @@
+import Hero from "./components/Hero";
+import Navbar from "./features/shared/components/Navbar";
 
 export default function HomePage() {
   return (
     <div>
-      <h1>HomePage</h1>
+      <Navbar />
+     <Hero />
+    
       
     </div>
   );
