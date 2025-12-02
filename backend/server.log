@@ -1,0 +1,18 @@
+
+> backend@1.0.0 start
+> node src/server.js
+
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+Server running on port 5001
+Connected to the Neon PostgreSQL database
+User registered: test1764614855879@example.com
+User logged in: test1764614855879@example.com
+Connected to the Neon PostgreSQL database
+User registered: testuser@example.com
+Connected to the Neon PostgreSQL database
+User logged in: testuser@example.com
+Connected to the Neon PostgreSQL database
+User registered: guru@gmail.com
+Connected to the Neon PostgreSQL database
+User logged in: guru@gmail.com
